@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { sanity } from '/lib/sanity'
+import { sanity } from '@/lib/sanity'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 export default function Testimonios() {
