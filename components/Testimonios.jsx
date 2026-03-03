@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { sanity } from "/lib/sanity";
+import { sanity } from "../lib/sanity";
 import { CaretLeft, CaretRight, Sparkle } from "phosphor-react";
 
 export default function Testimonios() {
