@@ -1,35 +1,62 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+// 1. Tipografías de Alta Gama
+const inter = Inter({ 
+  variable: "--font-inter", 
+  subsets: ["latin"],
+  display: 'swap',
+});
 
+const playfair = Playfair_Display({ 
+  variable: "--font-playfair", 
+  subsets: ["latin"],
+  display: 'swap',
+});
+
+// 2. SEO Optimizado y Extendido (Copywriting Premium)
 export const metadata: Metadata = {
-  title: "Odontología en Yerba Buena | Cariló Consultorio",
-  description:
-    "Consultorio odontológico en Yerba Buena, Tucumán. Turnos online, atención profesional y tratamientos personalizados.",
+  title: "Carilo Consultorio | Odontología de Vanguardia en Yerba Buena",
+  description: "Diseñamos tu nueva sonrisa. Odontología premium en Yerba Buena, Tucumán. Especialistas en estética dental, ortodoncia y rehabilitación oral con tecnología 3D.",
+  keywords: ["odontología", "dentista", "Yerba Buena", "Tucumán", "estética dental", "diseño de sonrisa", "ortodoncia", "Carilo Consultorio"],
+  metadataBase: new URL("https://cariloconsultorio.com"), // Cambiar por el dominio final
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: "Cariló Consultorio | Odontología en Yerba Buena",
-    description:
-      "Reservá tu turno odontológico en Yerba Buena. Atención profesional con tecnología de punta.",
+    title: "Carilo Consultorio | Odontología en Yerba Buena",
+    description: "Atención odontológica de excelencia con tecnología de punta en el corazón de Yerba Buena.",
     url: "https://cariloconsultorio.com/",
-    images: [
-      {
-        url: "https://cariloconsultorio.com/og-image.jpg",
-      },
-    ],
-    siteName: "Cariló Consultorio",
+    siteName: "Carilo Consultorio",
     locale: "es_AR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg", // ¡Acordate de crear esta imagen de 1200x630!
+        width: 1200,
+        height: 630,
+        alt: "Instalaciones de Carilo Consultorio Odontológico",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cariló Consultorio | Odontología en Yerba Buena",
-    description:
-      "Turnos odontológicos en Yerba Buena. Atención estética, preventiva y funcional.",
-    images: ["https://cariloconsultorio.com/og-image.jpg"],
+    title: "Carilo Consultorio | Odontología en Yerba Buena",
+    description: "Diseñamos tu sonrisa con tecnología de vanguardia y un enfoque humano.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -39,29 +66,55 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es-AR">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="es-AR" className="scroll-smooth">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#FAFCFF] text-[#0B1220]`}>
+        
+        {/* 3. Schema.org Corregido y Sincronizado con la lógica de Reserva */}
         <Script id="ld-json" type="application/ld+json" strategy="afterInteractive">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "MedicalClinic",
-              "name": "Carilo Consultorio Odontológico",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Yerba Buena",
-                "addressRegion": "Tucumán",
-                "addressCountry": "Argentina"
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": ["MedicalClinic", "Dentist"],
+            "name": "Carilo Consultorio Odontológico",
+            "image": "https://cariloconsultorio.com/og-image.jpg",
+            "@id": "https://cariloconsultorio.com/",
+            "url": "https://cariloconsultorio.com/",
+            "telephone": "+54-381-5555550", // Sincronizado con el link de WhatsApp
+            "priceRange": "$$",
+            "medicalSpecialty": "Dentistry",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Perú 1200", // Corregido para coincidir con el mapa
+              "addressLocality": "Yerba Buena",
+              "addressRegion": "Tucumán",
+              "postalCode": "T4107",
+              "addressCountry": "AR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -26.8167, 
+              "longitude": -65.3167
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "21:00" // Corregido según tu lógica JS
               },
-              "url": "https://cariloconsultorio.com/",
-              "logo": "https://cariloconsultorio.com/logo.png",
-              "sameAs": [
-                "https://www.facebook.com/CariloConsultorio",
-                "https://www.instagram.com/CariloConsultorio"
-              ]
-            }
-          `}
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "13:00" // Corregido según tu lógica JS
+              }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/CariloConsultorio",
+              "https://www.instagram.com/cariloconsultorio"
+            ]
+          })}
         </Script>
+        
         {children}
       </body>
     </html>

@@ -1,7 +1,10 @@
 "use client";
-import { useState } from "react";
-import { motion } from "framer-motion";
 
+import React from "react";
+import { motion } from "framer-motion";
+import { CheckCircle, GraduationCap, Star } from "phosphor-react";
+
+// Tu texto original intacto.
 const equipo = [
   {
     nombre: "Dr. Juan Luis Micoli",
@@ -14,8 +17,7 @@ const equipo = [
     formacion: "Odontólogo. Especializaciones en ortodoncia, estética dental y rehabilitación oral.",
     descripcion: "Tratamientos integrales con enfoque humano y compromiso profesional.",
     valores: "Prevención, confianza, excelencia clínica.",
-    imgSrc: "/equipo/juan-micoli.jpg",
-    seo: "Odontólogo Tucumán, ortodoncia, estética dental, prótesis, rehabilitación integral"
+    imgSrc: "/equipo/juan-micoli.jpg"
   },
   {
     nombre: "Dra. María Luz Graña",
@@ -28,101 +30,171 @@ const equipo = [
     formacion: "Odontóloga (UNT). Especialización en odontología estética, escaneo 3D y diseño digital de sonrisas.",
     descripcion: "Ayuda a las personas a sentirse más seguras a través de una sonrisa saludable y estéticamente perfecta.",
     valores: "Confidencialidad, precisión, empatía y excelencia clínica.",
-    imgSrc: "/equipo/luz-grana.jpg",
-    seo: "Estética dental, celebridades, diseño de sonrisa, escaneo 3D, carillas, Tucumán"
+    imgSrc: "/equipo/luz-grana.jpg"
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.2 } }
+};
+
 const cardVariants = {
-  hidden: { opacity: 0, y: 60, scale: 0.95 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { delay: i * 0.22, type: "spring", duration: 0.8, bounce: 0.17 }
-  })
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 };
 
 export default function Equipo() {
   return (
-    <section id="equipo" className="relative py-24 px-6 md:px-20 bg-white overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-        <svg width="100%" height="100%" viewBox="0 0 1440 320">
-          <path fill="#3CD2D4" fillOpacity="0.13" d="M0,240 Q320,80,700,220 Q900,300,1440,140 L1440,320 L0,320 Z"/>
-        </svg>
-      </div>
+    // Fondo principal en blanco puro para contrastar con la sección anterior
+    <section id="equipo" className="relative py-20 md:py-32 px-6 w-full bg-white overflow-hidden">
+      
+      {/* 🚀 Script SEO Oculto (Mantenido y optimizado) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalClinic",
+            "name": "Carilo Consultorio Odontológico",
+            "employee": equipo.map(doc => ({
+              "@type": "Physician",
+              "name": doc.nombre,
+              "medicalSpecialty": doc.especialidad
+            }))
+          })
+        }}
+      />
 
-      <div className="max-w-3xl mx-auto mb-16 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 font-playfair bg-gradient-to-r from-[#3CD2D4] to-[#23a8aa] text-transparent bg-clip-text drop-shadow">
-          Nuestro Equipo de Odontólogos en Tucumán
+      {/* --- TRANSICIÓN DE SECCIÓN Y FONDOS SUTILES --- */}
+      {/* 1. Degradado superior para fundir con la sección anterior (#FAFCFF) */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#FAFCFF] to-transparent z-0" />
+      {/* 2. Línea divisoria elegante */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-[#3CD2D4]/20 to-transparent z-0" />
+
+      {/* 3. Textura de puntos (Continuidad) */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.2]"
+        style={{
+          backgroundImage: 'radial-gradient(#3CD2D4 1.5px, transparent 1.5px)',
+          backgroundSize: '48px 48px'
+        }}
+      />
+
+      {/* 4. Marca de agua tipográfica y brillos sutiles (Para no sentir vacío) */}
+      <div className="absolute top-[5%] right-[-5%] z-0 select-none pointer-events-none opacity-[0.02]">
+        <h2 className="font-sans font-black text-[8rem] md:text-[14rem] leading-none whitespace-nowrap text-[#0B1220] tracking-tighter">
+          EL EQUIPO
         </h2>
-        <p className="text-lg text-gray-700 font-medium leading-relaxed">
-          En <span className="font-bold text-[#3CD2D4]">Carilo Consultorio Odontológico</span> contamos con un equipo de <b>odontólogos certificados</b> en <b>Tucumán</b>, especializados en <b>rehabilitación oral</b> y <b>estética dental</b>. Eleginos para cuidar tu sonrisa con el mejor equipo profesional y humano.
-        </p>
       </div>
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#3CD2D4]/5 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-[#1E5AA8]/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
-      <div className="flex flex-col md:flex-row justify-center gap-10 max-w-6xl mx-auto relative z-10">
-        {equipo.map((m, i) => (
-          <FlipCard key={i} miembro={m} index={i} />
-        ))}
-      </div>
 
-      <div className="mt-20 max-w-2xl mx-auto text-center z-10 relative">
-        <p className="text-base text-[#3CD2D4] font-medium">
-          Buscá odontólogos certificados en Tucumán, expertos en rehabilitación oral y estética dental. Tu mejor sonrisa comienza aquí.
-        </p>
+      <div className="relative z-10 w-full max-w-6xl mx-auto">
+        
+        {/* ENCABEZADO */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 md:mb-24"
+        >
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <span className="h-[1px] w-8 bg-[#3CD2D4]" />
+            <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#3CD2D4]">
+              Dirección Médica
+            </span>
+            <span className="h-[1px] w-8 bg-[#3CD2D4]" />
+          </div>
+          <h2 className="font-sans text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight leading-[1.15] mb-6">
+            Nuestro Equipo de Odontólogos en <span className="text-[#3CD2D4]">Tucumán.</span>
+          </h2>
+          <p className="text-slate-600 font-inter text-base max-w-3xl mx-auto leading-relaxed">
+            En <strong className="font-bold text-[#0B1220]">Carilo Consultorio Odontológico</strong> contamos con un equipo certificado, especializado en rehabilitación oral y estética dental. Eleginos para cuidar tu sonrisa.
+          </p>
+        </motion.div>
+
+        {/* TARJETAS */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex flex-col gap-16 md:gap-20"
+        >
+          {equipo.map((miembro, i) => (
+            <motion.article 
+              key={i}
+              variants={cardVariants}
+              className={`group relative flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-0`}
+            >
+              
+              {/* IMAGEN DEL DOCTOR (Ahora más pequeña y enmarcada) */}
+              <div className="w-full md:w-4/12 shrink-0 relative z-10">
+                {/* Marco blanco alrededor de la foto para darle formato de retrato */}
+                <div className="relative w-full aspect-[4/5] rounded-[2rem] bg-white p-2 md:p-3 shadow-lg border border-slate-100">
+                  <div className="relative w-full h-full rounded-[1.5rem] overflow-hidden bg-slate-100">
+                    <img 
+                      src={miembro.imgSrc} 
+                      alt={miembro.nombre} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* CONTENIDO DE LA TARJETA */}
+              {/* Ajustamos el ancho al 8/12 y reducimos un poco el margen negativo de superposición */}
+              <div className={`w-full md:w-8/12 bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-8 md:p-12 relative z-20 md:-mt-6 ${i % 2 === 0 ? 'md:-ml-10' : 'md:-mr-10'}`}>
+                
+                <h3 className="font-sans text-3xl md:text-4xl font-extrabold text-[#0B1220] tracking-tight mb-2">
+                  {miembro.nombre}
+                </h3>
+                <h4 className="font-inter text-sm font-bold uppercase tracking-widest text-[#3CD2D4] mb-4">
+                  {miembro.especialidad}
+                </h4>
+                
+                <p className="text-slate-500 font-inter text-sm italic border-l-2 border-[#3CD2D4]/30 pl-4 mb-6 leading-relaxed">
+                  "{miembro.descripcion}"
+                </p>
+
+                <ul className="flex flex-col gap-3 mb-8">
+                  {miembro.experiencia.map((exp, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="flex items-center justify-center w-5 h-5 rounded-full bg-[#3CD2D4]/10 shrink-0 mt-0.5">
+                        <CheckCircle size={14} weight="fill" className="text-[#3CD2D4]" />
+                      </div>
+                      <span className="font-inter text-slate-700 text-sm md:text-base leading-relaxed">
+                        {exp}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-col gap-4 p-5 bg-[#FAFCFF] rounded-2xl border border-slate-100">
+                  <div className="flex items-start gap-3">
+                    <GraduationCap size={20} weight="duotone" className="text-[#0B1220] shrink-0 mt-0.5" />
+                    <p className="font-inter text-sm text-slate-600 leading-relaxed">
+                      <strong className="text-[#0B1220] font-bold">Formación:</strong> {miembro.formacion}
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Star size={20} weight="duotone" className="text-[#3CD2D4] shrink-0 mt-0.5" />
+                    <p className="font-inter text-sm text-slate-600 leading-relaxed">
+                      <strong className="text-[#0B1220] font-bold">Valores:</strong> {miembro.valores}
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </motion.article>
+          ))}
+        </motion.div>
+
       </div>
     </section>
-  );
-}
-
-function FlipCard({ miembro, index }) {
-  const [flipped, setFlipped] = useState(false);
-
-  return (
-    <motion.article
-      custom={index}
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.22 }}
-      className="group perspective-1000 w-full flex justify-center"
-      style={{ minHeight: 440 }}
-      tabIndex={0}
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
-      onFocus={() => setFlipped(true)}
-      onBlur={() => setFlipped(false)}
-    >
-      <div className={`relative w-full max-w-xs h-[390px] transition-transform duration-700 ease-in-out [transform-style:preserve-3d] ${flipped ? "[transform:rotateY(180deg)]" : ""}`}>
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/90 rounded-3xl shadow-xl border border-[#3CD2D4]/30 px-8 py-8 backface-hidden">
-          <img src={miembro.imgSrc} alt={`${miembro.nombre}, ${miembro.especialidad}`} className="w-24 h-24 object-cover rounded-full border-4 border-white shadow-lg mb-5" draggable={false} loading="lazy" />
-          <h3 className="text-xl font-bold text-[#23a8aa] mb-1 group-hover:text-[#3CD2D4] transition">{miembro.nombre}</h3>
-          <div className="font-semibold text-[#3CD2D4] mb-2">{miembro.especialidad}</div>
-          <div className="text-gray-600 text-sm italic mb-3">"{miembro.descripcion}"</div>
-          <button className="mt-4 px-4 py-2 rounded-full bg-[#3CD2D4] text-white font-semibold text-sm shadow hover:bg-[#23a8aa] transition" onClick={() => setFlipped(true)} tabIndex={-1} aria-label={`Ver información de ${miembro.nombre}`}>
-            Ver más info
-          </button>
-        </div>
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white/95 rounded-3xl shadow-xl border border-[#3CD2D4]/50 px-8 py-8 [transform:rotateY(180deg)] backface-hidden text-sm">
-          <div className="font-semibold text-[#3CD2D4] mb-2">{miembro.especialidad}</div>
-          {miembro.experiencia.map((exp, i) => (
-            <div key={i} className="text-gray-700 mb-2 text-left w-full">
-              <span className="font-bold">•</span> {exp}
-            </div>
-          ))}
-          <div className="text-gray-500 mb-1 text-left w-full">
-            <span className="font-bold">Formación:</span> {miembro.formacion}
-          </div>
-          <div className="text-gray-600 text-left w-full">
-            <span className="font-bold">Valores:</span> {miembro.valores}
-          </div>
-          <span className="hidden">{miembro.seo}</span>
-          <button className="mt-6 mx-auto px-4 py-2 rounded-full bg-[#e3f7f7] text-[#3CD2D4] font-semibold text-sm shadow hover:bg-[#3CD2D4]/20 transition" onClick={() => setFlipped(false)} tabIndex={-1} aria-label={`Volver a ver la foto de ${miembro.nombre}`}>
-            Volver
-          </button>
-        </div>
-      </div>
-    </motion.article>
   );
 }
