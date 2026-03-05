@@ -89,7 +89,7 @@ export default function Testimonios() {
           </div>
           
           <h2 className="font-sans text-4xl md:text-5xl font-black text-[#0B1220] tracking-tight leading-[1.15] mb-6">
-            Tratamientos con <span className="text-[#3CD2D4]">Resultados Visibles.</span>
+            Tratamientos Odontológicos con <span className="text-[#3CD2D4]">Resultados Visibles.</span>
           </h2>
           
           <p className="text-slate-500 font-inter text-sm md:text-base max-w-2xl mx-auto leading-relaxed">

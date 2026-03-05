@@ -18,16 +18,16 @@ const playfair = Playfair_Display({
 
 // 2. SEO Optimizado y Extendido (Copywriting Premium)
 export const metadata: Metadata = {
-  title: "Carilo Consultorio | Odontología de Vanguardia en Yerba Buena",
-  description: "Diseñamos tu nueva sonrisa. Odontología premium en Yerba Buena, Tucumán. Especialistas en estética dental, ortodoncia y rehabilitación oral con tecnología 3D.",
+  title: "Odontólogo en Yerba Buena Tucumán | Cariló Consultorio Odontológico",
+  description: "Consultorio odontológico en Yerba Buena, Tucumán. Especialistas en estética dental, ortodoncia invisible y rehabilitación oral. Dr. Juan Luis Micoli y Dra. María Luz Graña. Reservá tu turno online.",
   keywords: ["odontología", "dentista", "Yerba Buena", "Tucumán", "estética dental", "diseño de sonrisa", "ortodoncia", "Carilo Consultorio"],
   metadataBase: new URL("https://cariloconsultorio.com"), // Cambiar por el dominio final
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Carilo Consultorio | Odontología en Yerba Buena",
-    description: "Atención odontológica de excelencia con tecnología de punta en el corazón de Yerba Buena.",
+    title: "Odontólogo en Yerba Buena | Cariló Consultorio",
+    description: "Reservá tu turno odontológico en Yerba Buena, Tucumán. Estética dental, ortodoncia y rehabilitación oral con tecnología de punta.",
     url: "https://cariloconsultorio.com/",
     siteName: "Carilo Consultorio",
     locale: "es_AR",
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Carilo Consultorio | Odontología en Yerba Buena",
-    description: "Diseñamos tu sonrisa con tecnología de vanguardia y un enfoque humano.",
+    title: "Odontólogo en Yerba Buena | Cariló Consultorio",
+    description: "Estética dental, ortodoncia y rehabilitación oral en Yerba Buena, Tucumán.",
     images: ["/og-image.jpg"],
   },
   robots: {

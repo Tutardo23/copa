@@ -118,9 +118,10 @@ export default function Hero() {
 
           </span>
 
+          {/* ✅ SEO: H1 incluye keyword "Odontólogo · Yerba Buena" */}
           <span className="font-inter text-xl md:text-3xl font-light tracking-[0.4em] text-white/80 uppercase mt-2 md:mt-0">
 
-            Consultorio
+            Odontólogo · Yerba Buena
 
           </span>
 
@@ -132,7 +133,7 @@ export default function Hero() {
 
         <motion.p variants={fadeUp} className="max-w-2xl text-base md:text-xl font-light text-white/90 leading-relaxed mb-10 drop-shadow-md">
 
-          Odontología con un enfoque <strong className="text-white font-medium">humano, profesional y estético</strong>. <br className="hidden md:block"/>
+          Consultorio odontológico en <strong className="text-white font-medium">Yerba Buena, Tucumán</strong> con enfoque humano y estético. <br className="hidden md:block"/>
 
           Diseñamos tu sonrisa con tecnología de vanguardia.
 

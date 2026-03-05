@@ -109,7 +109,7 @@ export default function Equipo() {
             <span className="h-[1px] w-8 bg-[#3CD2D4]" />
           </div>
           <h2 className="font-sans text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight leading-[1.15] mb-6">
-            Nuestro Equipo de Odontólogos en <span className="text-[#3CD2D4]">Tucumán.</span>
+            Odontólogos en <span className="text-[#3CD2D4]">Yerba Buena, Tucumán.</span>
           </h2>
           <p className="text-slate-600 font-inter text-base max-w-3xl mx-auto leading-relaxed">
             En <strong className="font-bold text-[#0B1220]">Carilo Consultorio Odontológico</strong> contamos con un equipo certificado, especializado en rehabilitación oral y estética dental. Eleginos para cuidar tu sonrisa.

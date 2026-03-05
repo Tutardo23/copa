@@ -87,8 +87,8 @@ export default function Servicios() {
             </div>
             {/* Tipografía Sans-Serif gruesa, igual a la de la foto */}
             <h2 className="font-sans text-4xl md:text-6xl font-extrabold text-[#0B1220] tracking-tight leading-[1.1]">
-              Tratamientos para <br/>
-              <span className="text-[#3CD2D4]">transformar</span> tu sonrisa.
+              Servicios Odontológicos <br/>
+              en <span className="text-[#3CD2D4]">Yerba Buena, Tucumán.</span>
             </h2>
           </motion.div>
 
@@ -99,7 +99,7 @@ export default function Servicios() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="text-slate-500 font-inter text-sm md:text-base max-w-xs leading-relaxed border-l-[1px] border-slate-300 pl-5">
-              Atención personalizada con tecnología de vanguardia en el corazón de Yerba Buena.
+              Estética dental, ortodoncia y rehabilitación oral con tecnología de vanguardia en Yerba Buena.
             </p>
           </motion.div>
         </div>

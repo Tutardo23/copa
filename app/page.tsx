@@ -1,8 +1,10 @@
 // app/page.tsx
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
 
-export const revalidate = 60 // ⏱️ Revalida esta página cada 60 segundos
+// ✅ Eliminado: export const dynamic = "force-dynamic"
+// Ese flag desactiva el caché de Next.js, aumenta el TTFB y daña Core Web Vitals.
+// revalidate = 60 es suficiente para contenido fresco sin sacrificar rendimiento.
+
+export const revalidate = 60;
 
 import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
@@ -25,4 +27,3 @@ export default function Home() {
     </>
   )
 }
-
